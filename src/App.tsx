@@ -35,9 +35,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {
-          !token ? 
-          <a href={spotifyLoginUrl}>Login to Spotify</a>
+        {!token
+          ? <a href={spotifyLoginUrl}>Login to Spotify</a>
           : <button onClick={logout}>Logout</button>
         }
       </header>
