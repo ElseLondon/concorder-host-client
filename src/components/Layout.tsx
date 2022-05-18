@@ -1,7 +1,7 @@
 import React from 'react';
 // import Routes from "../routes";
 import Sidebar from "./Sidebar";
-import Nav from "./Nav";
+// import Nav from "./Nav";
 
 function Layout(props: any) { // fix any as we have expected fields below
   return (

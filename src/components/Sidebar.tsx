@@ -19,7 +19,7 @@ function Sidebar(props, {defaultActive,}) {
   // @ts-ignore
   function getPath(path) {
     if (path.charAt(0) !== "/") {
-      return  "/" + path;
+      return "/" + path;
     }
     return path;
   }
