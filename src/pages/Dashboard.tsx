@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Dashboard(props) {
+function Dashboard(props: any) { // fix any
     console.log("Dashboard props", props);
     return (
         <div className="App">
