@@ -8,7 +8,7 @@ const Page3 = () => {
           <div>
             <h3>Marine Pasta</h3>
             <p>
-              What the flip did you just flipping say about me, you little bitch? I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.
+              What the flip did you just flipping say about me, you little person? I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.
               <br/>
               <br/>
 
