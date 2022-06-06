@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
 import SidebarItems from "./SidebarItems";
 import {Link} from "react-router-dom";
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // @ts-ignore
 function Sidebar(props, {defaultActive,}) {
@@ -12,12 +13,11 @@ function Sidebar(props, {defaultActive,}) {
 
   // @ts-ignore
   function changeActiveIndex(newIndex) {
-    localStorage.setItem("lastActiveIndex", newIndex)
-    setActiveIndex(newIndex)
+    localStorage.setItem("lastActiveIndex", newIndex);
+    setActiveIndex(newIndex);
   }
 
-  // @ts-ignore
-  function getPath(path) {
+  function getPath(path: string) {
     if (path.charAt(0) !== "/") {
       return "/" + path;
     }
@@ -31,20 +31,55 @@ function Sidebar(props, {defaultActive,}) {
 
   return (
     <>
-      <SidebarParent>
+        <SidebarParent>
+          
         <div style={{position: 'fixed'}}>
+
+          {/* CHANGE FOR LOGO */}
+          <LogoPlaceholder
+            // @ts-ignore
+            active={false}
+          >
+            <p>CONCORDER</p>
+          </LogoPlaceholder>
+          {/* CHANGE FOR LOGO */}
+
           {
             SidebarItems.map((item, index)=> {
-              return (
-                <Link to={item.route}>
-                  <SidebarItem key={item.name}
-                    // @ts-ignore
-                    active={index === activeIndex}
-                  >
-                    <p>{item.name}</p>
-                  </SidebarItem>
-                </Link>
-              );
+
+              if ([0,1,2,3].includes(index)) {
+                return (
+                  <Link to={item.route}>
+                    <UpperSidebarItem key={item.name}
+                      // @ts-ignore
+                      active={index === activeIndex}
+                    >
+                      <p>{item.name}</p>
+                      { 
+                        index === activeIndex &&
+                        <ChevronRightIcon style={{ color: 'white', float: 'right' }}/>
+                      }
+                    </UpperSidebarItem>
+                  </Link>
+                );
+              }
+
+              if ([4,5].includes(index)) {
+                return (
+                  <Link to={item.route}>
+                    <LowerSidebarItem key={item.name}
+                      // @ts-ignore
+                      active={index === activeIndex}
+                    >
+                      <p>{item.name}</p>
+                      { 
+                        index === activeIndex &&
+                        <ChevronRightIcon style={{ color: 'white', float: 'right' }}/>
+                      }
+                    </LowerSidebarItem>
+                  </Link>
+                );
+              }
             })
           }
         </div>
@@ -57,7 +92,7 @@ function Sidebar(props, {defaultActive,}) {
 export default Sidebar;
 
 const SidebarParent = styled.div`
-  background: #cf3d2a;
+  background: #000000;
   
   a {
     text-decoration: none;
@@ -74,18 +109,55 @@ const SidebarParent = styled.div`
   }
 `;
 
-const SidebarItem = styled.div`
+const LogoPlaceholder = styled.div`
+  display: flex;
   padding: 16px 24px;
-  transition: all 0.25s ease-in-out;
-  background: ${
-    // @ts-ignore
-    props => props.active ? "#b15b00" : ""
-  };
   margin: 4px 12px;
-  border-radius: 4px;
 
   p {
-    color: white;
+    color: ${"#BFBFBF"};
+    font-weight: bold;
+    text-decoration: none;
+  }
+`;
+
+const UpperSidebarItem = styled.div`
+  display: flex;
+  padding: 16px 24px;
+  transition: all 0.25s ease-in-out;
+  margin: 4px 12px;
+  border-radius: 4px;
+  box-shadow: 0px 24px 3px -24px #BFBFBF;
+
+  p {
+    color: ${
+      // @ts-ignore
+      props => props.active ? "white" : "#BFBFBF"};
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  &:hover {
+    cursor:pointer;
+  }
+  
+  &:hover:not(:first-child) {
+    background: #c34a36;
+  }
+`;
+
+const LowerSidebarItem = styled.div`
+  display: flex;
+  padding: 16px 24px;
+  transition: all 0.25s ease-in-out;
+  margin: 4px 12px;
+  border-radius: 4px;
+  box-shadow: 0px 24px 3px -24px #BFBFBF;
+
+  p {
+    color: ${
+      // @ts-ignore
+      props => props.active ? "white" : "#BFBFBF"};
     font-weight: bold;
     text-decoration: none;
   }

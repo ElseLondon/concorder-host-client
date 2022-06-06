@@ -1,9 +1,5 @@
 const SidebarItems = [
   {
-    name: "CONCORDER",
-    route: '/'
-  },
-  {
     name: "Now Playing",
     route: '/nowPlaying',
   },

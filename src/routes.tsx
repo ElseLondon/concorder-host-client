@@ -20,10 +20,8 @@ function Routes() {
             <Route path="/jukeBox" component={JukeBox}/>
             <Route path="/users" component={Users}/>
             <Route path="/statsAndInsights" component={StatsAndInsights}/>
-            {/*  */}
             <Route path="/settings" component={Settings}/>
             <Route path="/logOut" component={LogOut}/>
-            {/*  */}
             <Route component={NotFound}/>
           </Switch>
         </Layout>
