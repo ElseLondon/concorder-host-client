@@ -67,6 +67,10 @@ function Sidebar(props, {defaultActive,}) {
             }
           </div>
 
+          {/* <div>
+            <p style={{ color: 'white' }}>Hi, aovelhanegra!</p>
+          </div> */}
+
           <div>
             {
               SidebarItems.map((item, index)=> {
