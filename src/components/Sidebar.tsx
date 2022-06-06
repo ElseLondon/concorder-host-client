@@ -71,7 +71,7 @@ function Sidebar(props, {defaultActive,}) {
             <p style={{ color: 'white' }}>Hi, aovelhanegra!</p>
           </div> */}
 
-          <div>
+          <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
             {
               SidebarItems.map((item, index)=> {
                 if ([4,5].includes(index)) {
