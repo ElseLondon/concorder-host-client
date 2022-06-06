@@ -57,7 +57,7 @@ function Sidebar(props, {defaultActive,}) {
                         <p>{item.name}</p>
                         { 
                           index === activeIndex &&
-                          <ChevronRightIcon style={{ color: 'white' }}/>
+                          <ChevronRightIcon style={{ color: 'white', marginLeft: 'auto', height: '19px' }}/>
                         }
                       </UpperSidebarItem>
                     </Link>
@@ -84,7 +84,7 @@ function Sidebar(props, {defaultActive,}) {
                         <p>{item.name}</p>
                         { 
                           index === activeIndex &&
-                          <ChevronRightIcon style={{ color: 'white' }}/>
+                          <ChevronRightIcon style={{ color: 'white', marginLeft: 'auto', height: '19px' }}/>
                         }
                       </LowerSidebarItem>
                     </Link>
@@ -128,7 +128,7 @@ const LogoPlaceholder = styled.div`
 
 const UpperSidebarItem = styled.div`
   display: flex;
-  padding: 16px 24px;
+  padding: 18px 26px;
   transition: all 0.25s ease-in-out;
   margin: 4px 12px;
   border-radius: 4px;
@@ -151,7 +151,7 @@ const UpperSidebarItem = styled.div`
 
 const LowerSidebarItem = styled.div`
   display: flex;
-  padding: 16px 24px;
+  padding: 18px 26px;
   transition: all 0.25s ease-in-out;
   margin: 4px 12px;
   border-radius: 4px;
