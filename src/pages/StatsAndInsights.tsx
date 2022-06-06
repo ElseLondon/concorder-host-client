@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Page3 = () => {
+const StatsAndInsights = () => {
   return (
       <div style={{padding: '24px'}}>
         <h2>I bring the pasta.</h2>
@@ -119,4 +119,4 @@ const Page3 = () => {
   );
 };
 
-export default Page3;
+export default StatsAndInsights;

@@ -4,20 +4,28 @@ const SidebarItems = [
     route: '/'
   },
   {
-    name: "Dashboard",
-    route: '/dashboard',
+    name: "Now Playing",
+    route: '/nowPlaying',
   },
   {
-    name: "Page 1",
-    route: '/page-1'
+    name: "JukeBox",
+    route: '/jukebox'
   },
   {
-    name: "Page 2",
-    route: '/page-2'
+    name: "Users",
+    route: '/users'
   },
   {
-    name: "Page 3",
-    route: 'page-3'
+    name: "Stats & Insights",
+    route: '/statsAndInsights'
+  },
+  {
+    name: "Settings",
+    route: '/settings'
+  },
+  {
+    name: "Logout",
+    route: '/logout'
   },
 ];
 

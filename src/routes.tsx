@@ -1,11 +1,13 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Page1 from "./pages/Page-1";
-import Page2 from "./pages/Page-2";
-import Page3 from "./pages/Page-3";
-import Dashboard from "./pages/Dashboard";
+import JukeBox from "./pages/JukeBox";
+import Users from "./pages/Users";
+import StatsAndInsights from "./pages/StatsAndInsights";
+import NowPlaying from "./pages/NowPlaying";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
+import LogOut from "./pages/LogOut";
+import Settings from "./pages/Settings";
 
 function Routes() {
   return (
@@ -13,11 +15,15 @@ function Routes() {
       <Route render={(props: any)=>( //fix any
         <Layout {...props}>
           <Switch>
-            <Route path="/" exact component={Dashboard}/>
-            <Route path="/dashboard" exact component={Dashboard}/>
-            <Route path="/page-1" component={Page1}/>
-            <Route path="/page-2" component={Page2}/>
-            <Route path="/page-3" component={Page3}/>
+            <Route path="/" exact component={NowPlaying}/>
+            <Route path="/nowPlaying" exact component={NowPlaying}/>
+            <Route path="/jukeBox" component={JukeBox}/>
+            <Route path="/users" component={Users}/>
+            <Route path="/statsAndInsights" component={StatsAndInsights}/>
+            {/*  */}
+            <Route path="/settings" component={Settings}/>
+            <Route path="/logOut" component={LogOut}/>
+            {/*  */}
             <Route component={NotFound}/>
           </Switch>
         </Layout>
