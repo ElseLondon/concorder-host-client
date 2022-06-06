@@ -44,44 +44,51 @@ function Sidebar(props, {defaultActive,}) {
           </LogoPlaceholder>
           {/* CHANGE FOR LOGO */}
 
-          {
-            SidebarItems.map((item, index)=> {
+          <div>
+            {
+              SidebarItems.map((item, index)=> {
+                if ([0,1,2,3].includes(index)) {
+                  return (
+                    <Link to={item.route}>
+                      <UpperSidebarItem key={item.name}
+                        // @ts-ignore
+                        active={index === activeIndex}
+                      >
+                        <p>{item.name}</p>
+                        { 
+                          index === activeIndex &&
+                          <ChevronRightIcon style={{ color: 'white' }}/>
+                        }
+                      </UpperSidebarItem>
+                    </Link>
+                  );
+                }
+              })    
+            }
+          </div>
 
-              if ([0,1,2,3].includes(index)) {
-                return (
-                  <Link to={item.route}>
-                    <UpperSidebarItem key={item.name}
-                      // @ts-ignore
-                      active={index === activeIndex}
-                    >
-                      <p>{item.name}</p>
-                      { 
-                        index === activeIndex &&
-                        <ChevronRightIcon style={{ color: 'white', float: 'right' }}/>
-                      }
-                    </UpperSidebarItem>
-                  </Link>
-                );
-              }
-
-              if ([4,5].includes(index)) {
-                return (
-                  <Link to={item.route}>
-                    <LowerSidebarItem key={item.name}
-                      // @ts-ignore
-                      active={index === activeIndex}
-                    >
-                      <p>{item.name}</p>
-                      { 
-                        index === activeIndex &&
-                        <ChevronRightIcon style={{ color: 'white', float: 'right' }}/>
-                      }
-                    </LowerSidebarItem>
-                  </Link>
-                );
-              }
-            })
-          }
+          <div>
+            {
+              SidebarItems.map((item, index)=> {
+                if ([4,5].includes(index)) {
+                  return (
+                    <Link to={item.route}>
+                      <LowerSidebarItem key={item.name}
+                        // @ts-ignore
+                        active={index === activeIndex}
+                      >
+                        <p>{item.name}</p>
+                        { 
+                          index === activeIndex &&
+                          <ChevronRightIcon style={{ color: 'white' }}/>
+                        }
+                      </LowerSidebarItem>
+                    </Link>
+                  );
+                }
+              })
+            }
+          </div>
         </div>
         <div className="behind-the-scenes"/>
       </SidebarParent>
@@ -105,20 +112,14 @@ const SidebarParent = styled.div`
   
   .behind-the-scenes {
     width: 250px;
-    
   }
 `;
 
 const LogoPlaceholder = styled.div`
-  display: flex;
   padding: 16px 24px;
   margin: 4px 12px;
-
-  p {
-    color: ${"#BFBFBF"};
-    font-weight: bold;
-    text-decoration: none;
-  }
+  color: #BFBFBF;
+  font-weight: bold;
 `;
 
 const UpperSidebarItem = styled.div`
@@ -133,16 +134,14 @@ const UpperSidebarItem = styled.div`
     color: ${
       // @ts-ignore
       props => props.active ? "white" : "#BFBFBF"};
-    font-weight: bold;
+    font-weight: ${
+      // @ts-ignore
+      props => props.active ? "bold" : ""};
     text-decoration: none;
   }
   
   &:hover {
     cursor:pointer;
-  }
-  
-  &:hover:not(:first-child) {
-    background: #c34a36;
   }
 `;
 
@@ -158,15 +157,13 @@ const LowerSidebarItem = styled.div`
     color: ${
       // @ts-ignore
       props => props.active ? "white" : "#BFBFBF"};
-    font-weight: bold;
+    font-weight: ${
+      // @ts-ignore
+      props => props.active ? "bold" : ""};
     text-decoration: none;
   }
   
   &:hover {
     cursor:pointer;
-  }
-  
-  &:hover:not(:first-child) {
-    background: #c34a36;
   }
 `;
