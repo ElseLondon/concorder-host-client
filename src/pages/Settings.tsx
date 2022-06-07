@@ -2,8 +2,8 @@ import React from 'react';
 
 function Settings() {
   return (
-    <div>
-      <h1>Settings</h1>
+    <div style={{padding: '24px'}}>
+      <h2>Settings</h2>
     </div>
   );
 }

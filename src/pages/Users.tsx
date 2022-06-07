@@ -2,7 +2,7 @@ import React from 'react';
 
 function Users() {
   return (
-    <div>
+    <div style={{padding: '24px'}}>
       <h2>Users</h2>
     </div>
   );

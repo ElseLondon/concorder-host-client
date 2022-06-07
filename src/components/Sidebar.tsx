@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SidebarItems from "./SidebarItems";
 import {Link} from "react-router-dom";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import logo from'../assets/concorder-logo.png';
 
 // @ts-ignore
 function Sidebar(props, {defaultActive,}) {
@@ -35,15 +36,13 @@ function Sidebar(props, {defaultActive,}) {
           
         <div style={{position: 'fixed'}}>
 
-          {/* CHANGE FOR LOGO */}
-          <LogoPlaceholder
-            // @ts-ignore
-            active={false}
-          >
-            <p>CONCORDER</p>
-          </LogoPlaceholder>
-          {/* CHANGE FOR LOGO */}
+          {/* LOGO */}
+          <div style={{ padding: '16px 24px', margin: '4px 12px' }}>
+            <img style={{ height: '30px' }} src={logo} alt="fireSpot"/>
+          </div>
+          {/* LOGO */}
 
+          {/* UPPER SIDEBAR ITEMS */}
           <div>
             {
               SidebarItems.map((item, index)=> {
@@ -57,7 +56,7 @@ function Sidebar(props, {defaultActive,}) {
                         <p>{item.name}</p>
                         { 
                           index === activeIndex &&
-                          <ChevronRightIcon style={{ color: 'white', marginLeft: 'auto', height: '19px' }}/>
+                            <ChevronRightIcon style={{ color: 'white', marginLeft: 'auto', height: '19px' }}/>
                         }
                       </UpperSidebarItem>
                     </Link>
@@ -66,11 +65,15 @@ function Sidebar(props, {defaultActive,}) {
               })    
             }
           </div>
+          {/* UPPER SIDEBAR ITEMS */}
 
+          {/* LOWER SIDEBAR ITEMS */}
           <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
+            {/* GREETING */}
             <div>
               <p style={{ color: 'white', padding: '16px 24px', margin: '4px 12px' }}>Hi, aovelhanegra!</p>
             </div>
+            {/* GREETING */}
 
             {
               SidebarItems.map((item, index)=> {
@@ -93,6 +96,8 @@ function Sidebar(props, {defaultActive,}) {
               })
             }
           </div>
+          {/* LOWER SIDEBAR ITEMS */}
+
         </div>
         <div className="behind-the-scenes"/>
       </SidebarParent>
@@ -117,13 +122,6 @@ const SidebarParent = styled.div`
   .behind-the-scenes {
     width: 250px;
   }
-`;
-
-const LogoPlaceholder = styled.div`
-  padding: 16px 24px;
-  margin: 4px 12px;
-  color: #BFBFBF;
-  font-weight: bold;
 `;
 
 const UpperSidebarItem = styled.div`
