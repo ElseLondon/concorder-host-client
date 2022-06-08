@@ -2,8 +2,7 @@ import React from 'react';
 
 function NowPlaying() {
   return (
-    // create grey background
-    // create white content panel
+    // create black content panel
     // create header
     // create body
     // create button
