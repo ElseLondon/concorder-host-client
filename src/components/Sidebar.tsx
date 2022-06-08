@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import SidebarItems from "./SidebarItems";
 import {Link} from "react-router-dom";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import logo from'../assets/concorder-logo.png';
+import SidebarLogo from "./SidebarLogo";
+import SidebarGreeting from "./SidebarGreeting";
+
 
 // @ts-ignore
 function Sidebar(props, {defaultActive,}) {
@@ -11,6 +13,11 @@ function Sidebar(props, {defaultActive,}) {
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
   const [activeIndex, setActiveIndex] = useState(lastActiveIndex || defaultActive);
+
+  useEffect(()=> {
+    const activeItem = SidebarItems.findIndex(item=> getPath(item.route) === getPath(location.pathname))
+    changeActiveIndex(activeItem);
+  }, [location])
 
   // @ts-ignore
   function changeActiveIndex(newIndex) {
@@ -25,80 +32,51 @@ function Sidebar(props, {defaultActive,}) {
     return path;
   }
 
-  useEffect(()=> {
-    const activeItem = SidebarItems.findIndex(item=> getPath(item.route) === getPath(location.pathname))
-    changeActiveIndex(activeItem);
-  }, [location])
+  function generateSidebarItems(sidebarIndexArray: number[], activeIndex: string | number) {
+    return (
+      SidebarItems.map((item, index)=> {
+        if (sidebarIndexArray.includes(index)) {
+          return (
+            <Link to={item.route}>
+              {/* @ts-ignore */}
+              <SidebarItem key={item.name} active={index === activeIndex}>
+                <p>{item.name}</p>
+                { 
+                  index === activeIndex &&
+                  <ChevronRightIcon
+                    style={{ 
+                      color: 'white', 
+                      marginLeft: 'auto', 
+                      height: '19px'
+                    }}
+                  />
+                }
+              </SidebarItem>
+            </Link>
+          );
+        }
+      })
+    );
+  };
 
   return (
     <>
-        <SidebarParent>
-          
+      <SidebarParent>
         <div style={{position: 'fixed'}}>
 
-          {/* LOGO */}
-          <div style={{ padding: '16px 24px', margin: '4px 12px' }}>
-            <img style={{ height: '30px' }} src={logo} alt="fireSpot"/>
-          </div>
-          {/* LOGO */}
+          <SidebarLogo />
 
-          {/* UPPER SIDEBAR ITEMS */}
           <div>
-            {
-              SidebarItems.map((item, index)=> {
-                if ([0,1,2,3].includes(index)) {
-                  return (
-                    <Link to={item.route}>
-                      <UpperSidebarItem key={item.name}
-                        // @ts-ignore
-                        active={index === activeIndex}
-                      >
-                        <p>{item.name}</p>
-                        { 
-                          index === activeIndex &&
-                            <ChevronRightIcon style={{ color: 'white', marginLeft: 'auto', height: '19px' }}/>
-                        }
-                      </UpperSidebarItem>
-                    </Link>
-                  );
-                }
-              })    
-            }
+            {generateSidebarItems([0,1,2,3], activeIndex)}
           </div>
-          {/* UPPER SIDEBAR ITEMS */}
 
-          {/* LOWER SIDEBAR ITEMS */}
           <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
-            {/* GREETING */}
-            <div>
-              <p style={{ color: 'white', padding: '16px 24px', margin: '4px 12px' }}>Hi, aovelhanegra!</p>
-            </div>
-            {/* GREETING */}
-
-            {
-              SidebarItems.map((item, index)=> {
-                if ([4,5].includes(index)) {
-                  return (
-                    <Link to={item.route}>
-                      <LowerSidebarItem key={item.name}
-                        // @ts-ignore
-                        active={index === activeIndex}
-                      >
-                        <p>{item.name}</p>
-                        { 
-                          index === activeIndex &&
-                          <ChevronRightIcon style={{ color: 'white', marginLeft: 'auto', height: '19px' }}/>
-                        }
-                      </LowerSidebarItem>
-                    </Link>
-                  );
-                }
-              })
-            }
+            <SidebarGreeting />
+            {generateSidebarItems([4,5], activeIndex)}
           </div>
-          {/* LOWER SIDEBAR ITEMS */}
 
         </div>
+        
         <div className="behind-the-scenes"/>
       </SidebarParent>
     </>
@@ -124,30 +102,7 @@ const SidebarParent = styled.div`
   }
 `;
 
-const UpperSidebarItem = styled.div`
-  display: flex;
-  padding: 18px 26px;
-  transition: all 0.25s ease-in-out;
-  margin: 4px 12px;
-  border-radius: 4px;
-  box-shadow: 0px 24px 3px -24px #BFBFBF;
-
-  p {
-    color: ${
-      // @ts-ignore
-      props => props.active ? "white" : "#BFBFBF"};
-    font-weight: ${
-      // @ts-ignore
-      props => props.active ? "bold" : ""};
-    text-decoration: none;
-  }
-  
-  &:hover {
-    cursor:pointer;
-  }
-`;
-
-const LowerSidebarItem = styled.div`
+const SidebarItem = styled.div`
   display: flex;
   padding: 18px 26px;
   transition: all 0.25s ease-in-out;
