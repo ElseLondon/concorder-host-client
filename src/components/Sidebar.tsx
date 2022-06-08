@@ -19,9 +19,8 @@ function Sidebar(props, {defaultActive,}) {
     changeActiveIndex(activeItem);
   }, [location])
 
-  // @ts-ignore
-  function changeActiveIndex(newIndex) {
-    localStorage.setItem("lastActiveIndex", newIndex);
+  function changeActiveIndex(newIndex: string | number) {
+    localStorage.setItem("lastActiveIndex", newIndex.toString());
     setActiveIndex(newIndex);
   }
 
@@ -38,7 +37,6 @@ function Sidebar(props, {defaultActive,}) {
         if (sidebarIndexArray.includes(index)) {
           return (
             <Link to={item.route}>
-              {/* @ts-ignore */}
               <SidebarItem key={item.name} active={index === activeIndex}>
                 <p>{item.name}</p>
                 { 
@@ -102,7 +100,7 @@ const SidebarParent = styled.div`
   }
 `;
 
-const SidebarItem = styled.div`
+const SidebarItem = styled.div<{active: boolean}>`
   display: flex;
   padding: 18px 26px;
   transition: all 0.25s ease-in-out;
@@ -111,12 +109,8 @@ const SidebarItem = styled.div`
   box-shadow: 0px 24px 3px -24px #BFBFBF;
 
   p {
-    color: ${
-      // @ts-ignore
-      props => props.active ? "white" : "#BFBFBF"};
-    font-weight: ${
-      // @ts-ignore
-      props => props.active ? "bold" : ""};
+    color: ${props => props.active ? "white" : "#BFBFBF"};
+    font-weight: ${props => props.active ? "bold" : ""};
     text-decoration: none;
   }
   
