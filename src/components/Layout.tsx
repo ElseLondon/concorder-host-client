@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
 
-function Layout(props: any) { // fix any as we have expected fields below
+function Layout(props: any) {
   return (
     <div>
       <div style={{display: "flex"}}>

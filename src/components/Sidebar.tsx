@@ -7,8 +7,7 @@ import SidebarLogo from "./SidebarLogo";
 import SidebarGreeting from "./SidebarGreeting";
 
 
-// @ts-ignore
-function Sidebar(props, {defaultActive,}) {
+function Sidebar(props: any, {defaultActive}: any) {
   const location = props.history.location;
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
@@ -25,9 +24,7 @@ function Sidebar(props, {defaultActive,}) {
   }
 
   function getPath(path: string) {
-    if (path.charAt(0) !== "/") {
-      return "/" + path;
-    }
+    if (path.charAt(0) !== "/") return "/" + path;
     return path;
   }
 
@@ -41,13 +38,13 @@ function Sidebar(props, {defaultActive,}) {
                 <p>{item.name}</p>
                 { 
                   index === activeIndex &&
-                  <ChevronRightIcon
-                    style={{ 
-                      color: 'white', 
-                      marginLeft: 'auto', 
-                      height: '19px'
-                    }}
-                  />
+                    <ChevronRightIcon
+                      style={{ 
+                        color: 'white', 
+                        marginLeft: 'auto', 
+                        height: '19px'
+                      }}
+                    />
                 }
               </SidebarItem>
             </Link>
@@ -61,12 +58,9 @@ function Sidebar(props, {defaultActive,}) {
     <>
       <SidebarParent>
         <div style={{position: 'fixed'}}>
-
           <SidebarLogo />
 
-          <div>
-            {generateSidebarItems([0,1,2,3], activeIndex)}
-          </div>
+          {generateSidebarItems([0,1,2,3], activeIndex)}
 
           <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
             <SidebarGreeting />
@@ -74,7 +68,6 @@ function Sidebar(props, {defaultActive,}) {
           </div>
 
         </div>
-        
         <div className="behind-the-scenes"/>
       </SidebarParent>
     </>

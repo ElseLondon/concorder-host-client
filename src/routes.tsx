@@ -12,7 +12,7 @@ import Settings from "./pages/Settings";
 function Routes() {
   return (
     <BrowserRouter>
-      <Route render={(props: any)=>( //fix any
+      <Route render={(props: any)=>(
         <Layout {...props}>
           <Switch>
             <Route path="/" exact component={NowPlaying}/>
