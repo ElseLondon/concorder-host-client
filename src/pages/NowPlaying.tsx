@@ -1,18 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
+import PillButton from '../components/PillButton';
 
 
 function NowPlaying() {
   return (
-    // create button
-    <div style={{
-        backgroundColor: '#000000', 
-        height: '27%', 
-        width: '258%', 
-        margin: '25px',
-        borderRadius: '10px',
-        padding: '340px 0',
-      }}
-    >
+    <ContainerDiv>
       <h2 style={{color: 'white', textAlign: 'center'}}>No Tracks on The Queue</h2>
       <p style={{color: 'white', textAlign: 'center'}}>
         It seems like the play queue is empty at the moment. As soon as any 
@@ -26,25 +19,18 @@ function NowPlaying() {
         will show up here.
       </p>
       <br/>
-      <button 
-        style={{
-          margin: '0 auto', 
-          display: 'block',
-          backgroundColor: '#ddd',
-          border: 'none',
-          color: 'black',
-          padding: '10px 20px',
-          textAlign: 'center',
-          textDecoration: 'none',
-          cursor: 'pointer',
-          borderRadius: '16px',
-        }} 
-        type="button"
-        >
-          Manage Jukebox
-        </button>
-    </div>
+      <PillButton buttonText="Manage Jukebox"></PillButton>
+    </ContainerDiv>
   );
 }
 
 export default NowPlaying;
+
+const ContainerDiv = styled.div`
+  background-color: #000000; 
+  height: 20vh; 
+  width: 100vh; 
+  margin: 25px;
+  border-radius: 10px;
+  padding: 37vh 28vh 37vh 28vh;
+`;

@@ -6,7 +6,7 @@ function Layout(props: any) {
     <div>
       <div style={{display: "flex", backgroundColor: '#343434' }}>
         <Sidebar history={props.history}/>
-        <div style={{maxWidth: '800px'}}>
+        <div>
           {props.children}
         </div>
       </div>

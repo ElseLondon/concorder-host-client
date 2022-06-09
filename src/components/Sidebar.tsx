@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import styled from 'styled-components'
+import styled from 'styled-components';
 import SidebarItems from "./SidebarItems";
 import {Link} from "react-router-dom";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
