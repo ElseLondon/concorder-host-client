@@ -1,14 +1,29 @@
 import React from 'react';
+import styled from 'styled-components';
+import Header from '../components/Header';
+import CopyText from '../components/CopyText';
 
 
 export default function Users() {
+  const headerText = "No users to show yet";
+  const copyText = [
+    "You haven't had any users yet. Users will show up here as soon as",
+    "they start connecting.",
+  ];
+
   return (
-    // create black content panel
-    // create header
-    // create body
-    // create button
-    <div style={{padding: '24px'}}>
-      <h2>Users</h2>
-    </div>
+    <ContainerDiv>
+      <Header headerText={headerText}></Header>
+      <CopyText copyText={copyText}></CopyText>
+    </ContainerDiv>
   );
 }
+
+const ContainerDiv = styled.div`
+  background-color: #000000; 
+  height: 20vh; 
+  width: 100vh; 
+  margin: 25px;
+  border-radius: 10px;
+  padding: 37vh 28vh 37vh 28vh;
+`;
