@@ -22,7 +22,6 @@ const style = {
   height: 700,
   width: 600,
   bgcolor: '#000000',
-  // boxShadow: 24,
   p: 4,
   color: 'white',
   outline: 0,
@@ -32,7 +31,6 @@ const style = {
 export default function Routes() {
   // 
   const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   // 
 
