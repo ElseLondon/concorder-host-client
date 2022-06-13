@@ -20,10 +20,13 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
+  bgcolor: '#000000',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  color: 'white',
+  backdropFilter: 'blur(1px) brightness(1)',
+  webkitBackdropFilter: 'blur(1px) brightness(1)'
 };
 // 
 
@@ -36,6 +39,7 @@ export default function Routes() {
 
   return (
     <BrowserRouter>
+    <div className="AppContainer" style={{ filter: open ? "blur(5px) brightness(5)" : "none" }}>
       {/*  */}
       <>
         <Modal
@@ -69,6 +73,7 @@ export default function Routes() {
           </Switch>
         </Layout>
       )}/>
+      </div>
     </BrowserRouter>
   )
 }
