@@ -1,7 +1,8 @@
 import React from "react";
+import Header from "./Header";
+import CopyText from "./CopyText";
+import PillButton from "./PillButton";
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 
@@ -14,7 +15,6 @@ const style = {
   width: 600,
   bgcolor: '#000000',
   p: 4,
-  lineHeight: 700,
   color: 'white',
   outline: 0,
   borderRadius: '10px',
@@ -23,10 +23,17 @@ const style = {
 
 interface OnboardingModalStepperProps {
   open: boolean,
-  handleClose: any,
+  handleClose: () => void,
 };
 
 export default function OnboardingModalStepper(props: OnboardingModalStepperProps) {
+  const headerText = "Welcome to Concorder!";
+  const copyText = [
+    "Concorder is the music player that allows a group of users",
+    "seamlessly generate a play queue where all users have a fair share",
+    "of their own musical choices."
+  ];
+
   return(
     <>
       <Modal
@@ -36,12 +43,14 @@ export default function OnboardingModalStepper(props: OnboardingModalStepperProp
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Header headerText={headerText}></Header>
+          <CopyText copyText={copyText}></CopyText>
+
+          <div className="btn-group" style={{ display: 'inline-flex'}}>
+            <PillButton buttonText={"Back"}></PillButton>
+            <div style={{ margin: '0.5rem', display: 'inline'}}/>
+            <PillButton buttonText={"Next"}></PillButton>
+          </div>
         </Box>
       </Modal>
     </>
