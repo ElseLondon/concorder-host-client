@@ -7,7 +7,7 @@ import SidebarLogo from "./SidebarLogo";
 import SidebarGreeting from "./SidebarGreeting";
 
 
-function Sidebar(props: any, {defaultActive}: any) {
+export default function Sidebar(props: any, {defaultActive}: any) {
   const location = props.history.location;
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
@@ -73,8 +73,6 @@ function Sidebar(props: any, {defaultActive}: any) {
     </>
   );
 }
-
-export default Sidebar;
 
 const SidebarParent = styled.div`
   background: #000000;

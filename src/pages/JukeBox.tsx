@@ -1,6 +1,7 @@
 import React from 'react';
 
-function JukeBox() {
+
+export default function JukeBox() {
   return (
     // create black content panel
     // create header
@@ -11,5 +12,3 @@ function JukeBox() {
     </div>
   );
 }
-
-export default JukeBox;

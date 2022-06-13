@@ -5,7 +5,7 @@ import CopyText from '../components/CopyText';
 import PillButton from '../components/PillButton';
 
 
-function NowPlaying() {
+export default function NowPlaying() {
   const headerText = "No Tracks on The Queue";
   const copyText = [
     "It seems like the play queue is empty at the moment. As soon as any",
@@ -24,8 +24,6 @@ function NowPlaying() {
     </ContainerDiv>
   );
 }
-
-export default NowPlaying;
 
 const ContainerDiv = styled.div`
   background-color: #000000; 

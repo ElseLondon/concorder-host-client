@@ -9,7 +9,8 @@ import Layout from "./components/Layout";
 import LogOut from "./pages/LogOut";
 import Settings from "./pages/Settings";
 
-function Routes() {
+
+export default function Routes() {
   return (
     <BrowserRouter>
       <Route render={(props: any)=>(
@@ -29,5 +30,3 @@ function Routes() {
     </BrowserRouter>
   )
 }
-
-export default Routes;

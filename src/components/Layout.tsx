@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
 
-function Layout(props: any) {
+export default function Layout(props: any) {
   return (
     <div>
       <div style={{display: "flex", backgroundColor: '#343434' }}>
@@ -13,5 +13,3 @@ function Layout(props: any) {
     </div>
   );
 }
-
-export default Layout;

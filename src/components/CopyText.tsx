@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-function CopyText(props: any) { // fix any
+export default function CopyText(props: any) { // fix any
   return props.copyText.map((row: string, index: number) => {
     return(
       <>
@@ -12,8 +12,6 @@ function CopyText(props: any) { // fix any
     );
   });
 }
-
-export default CopyText;
 
 const CopyRow = styled.p`
   color: white;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const NotFound = () => {
+
+export default function NotFound(){
   // Is this page still necessary?
   return (
     <div style={{padding: '24px'}}>
@@ -8,5 +9,3 @@ const NotFound = () => {
     </div>
   );
 };
-
-export default NotFound;

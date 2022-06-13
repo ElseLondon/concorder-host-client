@@ -1,6 +1,7 @@
 import React from 'react';
 
-const StatsAndInsights = () => {
+
+export default function StatsAndInsights(){
   return (
     // create black content panel
     // create header
@@ -11,5 +12,3 @@ const StatsAndInsights = () => {
     </div>
   );
 };
-
-export default StatsAndInsights;

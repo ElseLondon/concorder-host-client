@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Users() {
+
+export default function Users() {
   return (
     // create black content panel
     // create header
@@ -11,5 +12,3 @@ function Users() {
     </div>
   );
 }
-
-export default Users;
