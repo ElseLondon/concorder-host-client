@@ -6,18 +6,18 @@ import PillButton from '../components/PillButton';
 function NowPlaying() {
   return (
     <ContainerDiv>
-      <h2 style={{color: 'white', textAlign: 'center'}}>No Tracks on The Queue</h2>
-      <p style={{color: 'white', textAlign: 'center'}}>
+      <Header>No Tracks on The Queue</Header>
+      <CopyRow>
         It seems like the play queue is empty at the moment. As soon as any 
-      </p>
+      </CopyRow>
       <br/>
-      <p style={{color: 'white', textAlign: 'center'}}>
+      <CopyRow>
         users connect, or you add songs to the Jukebox catalogue, tracks
-      </p>
+      </CopyRow>
       <br/>
-      <p style={{color: 'white', textAlign: 'center'}}>
+      <CopyRow>
         will show up here.
-      </p>
+      </CopyRow>
       <br/>
       <PillButton buttonText="Manage Jukebox"></PillButton>
     </ContainerDiv>
@@ -25,6 +25,16 @@ function NowPlaying() {
 }
 
 export default NowPlaying;
+
+const Header = styled.h2`
+  color: white;
+  text-align: center;
+`;
+
+const CopyRow = styled.p`
+  color: white;
+  text-align: center;
+`;
 
 const ContainerDiv = styled.div`
   background-color: #000000; 
