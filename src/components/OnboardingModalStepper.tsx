@@ -29,7 +29,7 @@ interface OnboardingModalStepperProps {
 export default function OnboardingModalStepper(props: OnboardingModalStepperProps) {
   const headerText = "Welcome to Concorder!";
   const copyText = [
-    "Concorder is the music player that allows a group of users",
+    "Concorder is the music player that allows a group of users to",
     "seamlessly generate a play queue where all users have a fair share",
     "of their own musical choices."
   ];
@@ -43,14 +43,18 @@ export default function OnboardingModalStepper(props: OnboardingModalStepperProp
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <p style={{color: '#CCCCCC'}}>1 of 10</p>
+
           <Header headerText={headerText}></Header>
           <CopyText copyText={copyText}></CopyText>
 
-          <div className="btn-group" style={{ display: 'inline-flex'}}>
+          <div style={{ display: 'inline-flex'}}>
             <PillButton buttonText={"Back"}></PillButton>
             <div style={{ margin: '0.5rem', display: 'inline'}}/>
             <PillButton buttonText={"Next"}></PillButton>
           </div>
+
+          <p style={{color: '#CCCCCC'}}>Skip onboarding</p>
         </Box>
       </Modal>
     </>
