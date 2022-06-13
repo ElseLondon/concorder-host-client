@@ -13,7 +13,7 @@ import Settings from "./pages/Settings";
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Route render={(props: any)=>(
+      <Route render={(props)=>(
         <Layout {...props}>
           <Switch>
             <Route path="/" exact component={NowPlaying}/>

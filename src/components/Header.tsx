@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-export default function Header(props: any) { // fix any
+interface HeaderProps {
+  headerText: string
+}
+
+export default function Header(props: HeaderProps) {
   return (
     <StyledHeader>{props.headerText}</StyledHeader>
   );

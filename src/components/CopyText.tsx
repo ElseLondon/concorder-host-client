@@ -2,15 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-export default function CopyText(props: any) { // fix any
-  return props.copyText.map((row: string, index: number) => {
-    return(
+interface CopyTextProps {
+  copyText: string[]
+}
+
+export default function CopyText(props: CopyTextProps) {
+  return <>{
+    props.copyText.map((row, index) => (
       <>
         <CopyRow key={index}>{row}</CopyRow>
         <br/>
       </>
-    );
-  });
+    ))
+  }</>;
 }
 
 const CopyRow = styled.p`

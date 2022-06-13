@@ -4,14 +4,25 @@ import {Link} from "react-router-dom";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 
-export default function SidebarItem(props: any) { // fix any
+interface SidebarItemProps {
+  index: number;
+  activeIndex: string | number;
+  item: {
+    route: string;
+    name: string;
+  }
+}
+
+export default function SidebarItem(props: SidebarItemProps) {
+  const {item, index, activeIndex} = props;
+
   return(
-    <Link to={props.item.route}>
-      <StyledSidebarItem key={props.item.name} active={props.index === props.activeIndex}>
-        <p>{props.item.name}</p>
+    <Link to={item.route}>
+      <StyledSidebarItem key={item.name} active={index === activeIndex}>
+        <p>{item.name}</p>
         
         { 
-          props.index === props.activeIndex &&
+          index === activeIndex &&
             <ChevronRightIcon
               style={{ 
                 color: 'white', 

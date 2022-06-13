@@ -6,11 +6,20 @@ import SidebarLogo from "./SidebarLogo";
 import SidebarGreeting from "./SidebarGreeting";
 
 
-export default function Sidebar(props: any, {defaultActive}: any) {
+interface SidebarProps {
+  history: {
+    location: {
+      pathname: string
+    },
+    defaultActive: string | number
+  }
+}
+
+export default function Sidebar(props: SidebarProps) {
   const location = props.history.location;
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
-  const [activeIndex, setActiveIndex] = useState(lastActiveIndex || defaultActive);
+  const [activeIndex, setActiveIndex] = useState(lastActiveIndex || props.history.defaultActive);
 
   useEffect(()=> {
     const activeItem = SidebarItems.findIndex(item => getPath(item.route) === getPath(location.pathname))

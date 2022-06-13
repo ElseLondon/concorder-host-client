@@ -1,15 +1,26 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
+// import { RouteComponentProps } from 'react-router-dom';
 
-export default function Layout(props: any) {
+
+// export interface HistoryWithDefaultActive extends RouteComponentProps {
+//   defaultActive: string | number
+// }
+
+interface LayoutProps {
+  history: any, // fix any
+  children: React.ReactNode
+}
+
+export default function Layout(props: LayoutProps) {
+  const {history, children} = props;
+
   return (
-    <div>
+    <>
       <div style={{display: "flex", backgroundColor: '#343434' }}>
-        <Sidebar history={props.history}/>
-        <div>
-          {props.children}
-        </div>
+        <Sidebar history={history}/>
+        {children}
       </div>
-    </div>
+    </>
   );
 }

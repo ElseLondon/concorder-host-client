@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-export default function PillButton(props: any) { // fix any
+interface PillButtonProps {
+  buttonText: string
+}
+
+export default function PillButton(props: PillButtonProps) {
   return (
     <StyledPillButton>{props.buttonText}</StyledPillButton>
   );
