@@ -4,22 +4,18 @@ import SidebarItems from "./SidebarItems";
 import SidebarItem from "./SidebarItem";
 import SidebarLogo from "./SidebarLogo";
 import SidebarGreeting from "./SidebarGreeting";
+import { RouteComponentProps } from 'react-router-dom';
 
 
 interface SidebarProps {
-  history: {
-    location: {
-      pathname: string
-    },
-    defaultActive: string | number
-  }
+  history: RouteComponentProps['history']
 }
 
 export default function Sidebar(props: SidebarProps) {
   const location = props.history.location;
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
-  const [activeIndex, setActiveIndex] = useState(lastActiveIndex || props.history.defaultActive);
+  const [activeIndex, setActiveIndex] = useState(lastActiveIndex || '0');
 
   useEffect(()=> {
     const activeItem = SidebarItems.findIndex(item => getPath(item.route) === getPath(location.pathname))
@@ -42,6 +38,7 @@ export default function Sidebar(props: SidebarProps) {
         if (sidebarIndexArray.includes(index)) {
           return (
             <SidebarItem
+              key={index}
               index={index}
               activeIndex={activeIndex}
               item={item}

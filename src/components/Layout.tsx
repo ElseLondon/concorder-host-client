@@ -1,14 +1,10 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
-// import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 
-
-// export interface HistoryWithDefaultActive extends RouteComponentProps {
-//   defaultActive: string | number
-// }
 
 interface LayoutProps {
-  history: any, // fix any
+  history: RouteComponentProps['history'],
   children: React.ReactNode
 }
 

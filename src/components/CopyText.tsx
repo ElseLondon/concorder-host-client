@@ -9,10 +9,10 @@ interface CopyTextProps {
 export default function CopyText(props: CopyTextProps) {
   return <>{
     props.copyText.map((row, index) => (
-      <>
+      <div key={index}>
         <CopyRow key={index}>{row}</CopyRow>
         <br/>
-      </>
+      </div>
     ))
   }</>;
 }
