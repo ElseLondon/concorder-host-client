@@ -46,21 +46,21 @@ export default function Sidebar(props: any, {defaultActive}: any) {
   return (
     <>
       <SidebarParent>
-        <div style={{position: 'fixed'}}>
+        <AllSidebarItems>
           <SidebarLogo />
 
           {
             generateSidebarItems([0,1,2,3], activeIndex)
           }
 
-          <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
+          <LowerSidebarItems>
             <SidebarGreeting />
             {
               generateSidebarItems([4,5], activeIndex)
             }
-          </div>
+          </LowerSidebarItems>
 
-        </div>
+        </AllSidebarItems>
         <div className="behind-the-scenes"/>
       </SidebarParent>
     </>
@@ -82,4 +82,14 @@ const SidebarParent = styled.div`
   .behind-the-scenes {
     width: 250px;
   }
+`;
+
+const AllSidebarItems = styled.div`
+  position: fixed;
+`;
+
+const LowerSidebarItems = styled.div`
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
 `;
