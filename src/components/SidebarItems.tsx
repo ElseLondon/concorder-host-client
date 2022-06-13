@@ -4,7 +4,7 @@ const SidebarItems = [
     route: '/nowPlaying',
   },
   {
-    name: "JukeBox",
+    name: "Jukebox",
     route: '/jukebox'
   },
   {
