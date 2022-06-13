@@ -4,7 +4,7 @@ import SidebarItems from "./SidebarItems";
 import SidebarItem from "./SidebarItem";
 import SidebarLogo from "./SidebarLogo";
 import SidebarGreeting from "./SidebarGreeting";
-import { RouteComponentProps } from 'react-router-dom';
+import {RouteComponentProps} from 'react-router-dom';
 
 
 interface SidebarProps {
