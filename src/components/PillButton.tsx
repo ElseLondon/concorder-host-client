@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function PillButton(props: any) { // fix any
-    return (
-        <StyledPillButton>{props.buttonText}</StyledPillButton>
-    );
+  return (
+    <StyledPillButton>{props.buttonText}</StyledPillButton>
+  );
 };
 
 const StyledPillButton = styled.button`

@@ -1,40 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from '../components/Header';
+import CopyText from '../components/CopyText';
 import PillButton from '../components/PillButton';
 
 
 function NowPlaying() {
+  const headerText = "No Tracks on The Queue";
+  const copyText = [
+    "It seems like the play queue is empty at the moment. As soon as any",
+    "users connect, or you add songs to the Jukebox catalogue, tracks",
+    "will show up here.",
+  ];
+  const buttonText = "Manage Jukebox";
+
   return (
     <ContainerDiv>
-      <Header>No Tracks on The Queue</Header>
-      <CopyRow>
-        It seems like the play queue is empty at the moment. As soon as any 
-      </CopyRow>
-      <br/>
-      <CopyRow>
-        users connect, or you add songs to the Jukebox catalogue, tracks
-      </CopyRow>
-      <br/>
-      <CopyRow>
-        will show up here.
-      </CopyRow>
-      <br/>
-      <PillButton buttonText="Manage Jukebox"></PillButton>
+      <Header headerText={headerText}></Header>
+
+      <CopyText copyText={copyText}></CopyText>
+    
+      <PillButton buttonText={buttonText}></PillButton>
     </ContainerDiv>
   );
 }
 
 export default NowPlaying;
-
-const Header = styled.h2`
-  color: white;
-  text-align: center;
-`;
-
-const CopyRow = styled.p`
-  color: white;
-  text-align: center;
-`;
 
 const ContainerDiv = styled.div`
   background-color: #000000; 
