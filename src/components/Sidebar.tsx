@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from "react";
-import styled from 'styled-components'
+import styled from 'styled-components';
 import SidebarItems from "./SidebarItems";
-import {Link} from "react-router-dom";
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import SidebarItem from "./SidebarItem";
 import SidebarLogo from "./SidebarLogo";
 import SidebarGreeting from "./SidebarGreeting";
+import {RouteComponentProps} from 'react-router-dom';
 
 
-function Sidebar(props: any, {defaultActive}: any) {
+interface SidebarProps {
+  history: RouteComponentProps['history']
+}
+
+export default function Sidebar(props: SidebarProps) {
   const location = props.history.location;
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
-  const [activeIndex, setActiveIndex] = useState(lastActiveIndex || defaultActive);
+  const [activeIndex, setActiveIndex] = useState(lastActiveIndex || '0');
 
   useEffect(()=> {
-    const activeItem = SidebarItems.findIndex(item=> getPath(item.route) === getPath(location.pathname))
+    const activeItem = SidebarItems.findIndex(item => getPath(item.route) === getPath(location.pathname))
     changeActiveIndex(activeItem);
   }, [location])
 
@@ -33,21 +37,12 @@ function Sidebar(props: any, {defaultActive}: any) {
       SidebarItems.map((item, index)=> {
         if (sidebarIndexArray.includes(index)) {
           return (
-            <Link to={item.route}>
-              <SidebarItem key={item.name} active={index === activeIndex}>
-                <p>{item.name}</p>
-                { 
-                  index === activeIndex &&
-                    <ChevronRightIcon
-                      style={{ 
-                        color: 'white', 
-                        marginLeft: 'auto', 
-                        height: '19px'
-                      }}
-                    />
-                }
-              </SidebarItem>
-            </Link>
+            <SidebarItem
+              key={index}
+              index={index}
+              activeIndex={activeIndex}
+              item={item}
+            />
           );
         }
       })
@@ -57,24 +52,26 @@ function Sidebar(props: any, {defaultActive}: any) {
   return (
     <>
       <SidebarParent>
-        <div style={{position: 'fixed'}}>
+        <AllSidebarItems>
           <SidebarLogo />
 
-          {generateSidebarItems([0,1,2,3], activeIndex)}
+          {
+            generateSidebarItems([0,1,2,3], activeIndex)
+          }
 
-          <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
+          <LowerSidebarItems>
             <SidebarGreeting />
-            {generateSidebarItems([4,5], activeIndex)}
-          </div>
+            {
+              generateSidebarItems([4,5], activeIndex)
+            }
+          </LowerSidebarItems>
 
-        </div>
+        </AllSidebarItems>
         <div className="behind-the-scenes"/>
       </SidebarParent>
     </>
   );
 }
-
-export default Sidebar;
 
 const SidebarParent = styled.div`
   background: #000000;
@@ -93,21 +90,12 @@ const SidebarParent = styled.div`
   }
 `;
 
-const SidebarItem = styled.div<{active: boolean}>`
-  display: flex;
-  padding: 18px 26px;
-  transition: all 0.25s ease-in-out;
-  margin: 4px 12px;
-  border-radius: 4px;
-  box-shadow: 0px 24px 3px -24px #BFBFBF;
+const AllSidebarItems = styled.div`
+  position: fixed;
+`;
 
-  p {
-    color: ${props => props.active ? "white" : "#BFBFBF"};
-    font-weight: ${props => props.active ? "bold" : ""};
-    text-decoration: none;
-  }
-  
-  &:hover {
-    cursor:pointer;
-  }
+const LowerSidebarItems = styled.div`
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
 `;

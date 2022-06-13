@@ -9,10 +9,11 @@ import Layout from "./components/Layout";
 import LogOut from "./pages/LogOut";
 import Settings from "./pages/Settings";
 
-function Routes() {
+
+export default function Routes() {
   return (
     <BrowserRouter>
-      <Route render={(props: any)=>(
+      <Route render={(props)=>(
         <Layout {...props}>
           <Switch>
             <Route path="/" exact component={NowPlaying}/>
@@ -29,5 +30,3 @@ function Routes() {
     </BrowserRouter>
   )
 }
-
-export default Routes;

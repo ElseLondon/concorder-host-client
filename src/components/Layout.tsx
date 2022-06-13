@@ -1,17 +1,22 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
+import {RouteComponentProps} from 'react-router-dom';
 
-function Layout(props: any) {
-  return (
-    <div>
-      <div style={{display: "flex"}}>
-        <Sidebar history={props.history}/>
-        <div style={{maxWidth: '800px'}}>
-          {props.children}
-        </div>
-      </div>
-    </div>
-  );
+
+interface LayoutProps {
+  history: RouteComponentProps['history'],
+  children: React.ReactNode
 }
 
-export default Layout;
+export default function Layout(props: LayoutProps) {
+  const {history, children} = props;
+
+  return (
+    <>
+      <div style={{display: "flex", backgroundColor: '#343434' }}>
+        <Sidebar history={history}/>
+        {children}
+      </div>
+    </>
+  );
+}
