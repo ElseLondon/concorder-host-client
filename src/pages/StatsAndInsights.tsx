@@ -12,14 +12,14 @@ export default function StatsAndInsights(){
   ];
 
   return (
-    <ContainerDiv>
+    <PageContainer>
       <Header headerText={headerText}></Header>
       <CopyText copyText={copyText}></CopyText>
-    </ContainerDiv>
+    </PageContainer>
   );
 };
 
-const ContainerDiv = styled.div`
+const PageContainer = styled.div`
   background-color: #000000; 
   height: 20vh; 
   width: 100vh; 
