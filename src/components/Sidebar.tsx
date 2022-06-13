@@ -33,9 +33,12 @@ export default function Sidebar(props: any, {defaultActive}: any) {
       SidebarItems.map((item, index)=> {
         if (sidebarIndexArray.includes(index)) {
           return (
+            // 
+            // Can be own Component| SidebarItem //
             <Link to={item.route}>
               <SidebarItem key={item.name} active={index === activeIndex}>
                 <p>{item.name}</p>
+                
                 { 
                   index === activeIndex &&
                     <ChevronRightIcon
@@ -48,6 +51,8 @@ export default function Sidebar(props: any, {defaultActive}: any) {
                 }
               </SidebarItem>
             </Link>
+            // Can be own Component| SidebarItem //
+            // 
           );
         }
       })
@@ -60,11 +65,15 @@ export default function Sidebar(props: any, {defaultActive}: any) {
         <div style={{position: 'fixed'}}>
           <SidebarLogo />
 
-          {generateSidebarItems([0,1,2,3], activeIndex)}
+          {
+            generateSidebarItems([0,1,2,3], activeIndex)
+          }
 
           <div style={{ position: 'absolute', bottom: 75, width: '100%' }}>
             <SidebarGreeting />
-            {generateSidebarItems([4,5], activeIndex)}
+            {
+              generateSidebarItems([4,5], activeIndex)
+            }
           </div>
 
         </div>
