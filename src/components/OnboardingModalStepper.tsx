@@ -17,15 +17,11 @@ export default function OnboardingModalStepper(
   const [step, setStep] = React.useState(1)
 
   const backClick = () => {
-    setStep(
-      step === 1 ? 1 : step - 1
-    )
+    setStep(step === 1 ? 1 : step - 1)
   }
 
   const nextClick = () => {
-    setStep(
-      step === 10 ? 10 : step + 1
-    )
+    setStep(step === 10 ? 10 : step + 1)
   }
 
   const skipOnboardingClick = () => {
@@ -56,25 +52,19 @@ export default function OnboardingModalStepper(
             textAlign: 'center'
           }}
         >
-
           <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</p>
 
           <div style={{ paddingTop: '10%' }}>
             <Header headerText={OnboardingCopy[step].headerText}></Header>
 
             <div style={{ paddingTop: '3%' }}>
-              <CopyText copyText={OnboardingCopy[1].copyText}></CopyText>
+              <CopyText copyText={OnboardingCopy[step].copyText}></CopyText>
             </div>
 
             <div style={{ display: 'inline-flex', paddingTop: '5%' }}>
-              {
-                step !== 1 &&
-                  <PillButton
-                    back
-                    onClick={backClick}
-                    buttonText={'Back'}
-                  />
-              }
+              {step !== 1 && (
+                <PillButton back onClick={backClick} buttonText={'Back'} />
+              )}
               <div style={{ margin: '0.5rem', display: 'inline' }} />
               <PillButton
                 onClick={nextClick}
@@ -82,7 +72,7 @@ export default function OnboardingModalStepper(
               />
             </div>
           </div>
-          <TextButton text="Skip onboarding" onClick={skipOnboardingClick}/>
+          <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
         </div>
       </Modal>
     </>

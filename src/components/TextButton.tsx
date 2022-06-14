@@ -6,18 +6,14 @@ interface TextButtonProps {
   onClick: () => void
 }
 
-export default function TextButtonStepper(
-  props: TextButtonProps
-) {
+export default function TextButtonStepper(props: TextButtonProps) {
   return (
-    <StyledTextButton onClick={props.onClick}>
-      {props.text}
-    </StyledTextButton>
+    <StyledTextButton onClick={props.onClick}>{props.text}</StyledTextButton>
   )
 }
 
 const StyledTextButton = styled.p`
-  color: #CCCCCC;
+  color: #cccccc;
   bottom: 5vh;
   right: 27vh;
   position: absolute;

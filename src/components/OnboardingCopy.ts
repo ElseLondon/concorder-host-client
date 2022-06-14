@@ -18,73 +18,61 @@ export const OnboardingCopy: OnboardingCopyFields = {
   2: {
     headerText: 'How it Works',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      'There are two parts to Concorder: the Host App and the Client App.'
     ]
   },
   3: {
     headerText: 'The Host App',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      'The Host App (that\'s this one) is the command centre of Concorder.',
+      'It is the music player and where the play queue is generated',
     ]
   },
   4: {
     headerText: 'The Client App',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      
     ]
   },
   5: {
     headerText: 'The Play Queue',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      
     ]
   },
   6: {
     headerText: 'The User\'s Pool',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      
     ]
   },
   7: {
     headerText: 'Jukebox Mode',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      
     ]
   },
   8: {
     headerText: 'Soundtrack Mode',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      'Spotify mode allows users to log in with their Spotify accounts to',
+      'they can create their pools by selecting songs from their playlists',
+      'and top tracks.'
     ]
   },
   9: {
     headerText: 'Flex Mode',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+      'Flex mode gives users more flexibility, allowing them to populate',
+      'their individual pools by either choosing them from the Jukebox',
+      'catalogue, or by logging in with their Spotify accounts.'
     ]
   },
   10: {
     headerText: 'That\'s it!',
     copyText: [
-      'Concorder is the music player that allows a group of users to',
-      'seamlessly generate a play queue where all users have a fair share',
-      'of their own musical choices.'
+     'You will now be required to perform a short initial setup so that',
+     'Concorder can be optimised to your specific needs'
     ]
   }
 }
