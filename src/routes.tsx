@@ -17,7 +17,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <div
-        className='AppContainer'
+        className="AppContainer"
         style={{ filter: open ? 'blur(2px) opacity(33%)' : 'none' }}
       >
         <OnboardingModalStepper open={open} handleClose={handleClose} />
@@ -26,13 +26,13 @@ export default function Routes() {
           render={(props) => (
             <Layout {...props}>
               <Switch>
-                <Route path='/' exact component={NowPlaying} />
-                <Route path='/nowPlaying' exact component={NowPlaying} />
-                <Route path='/jukeBox' component={JukeBox} />
-                <Route path='/users' component={Users} />
-                <Route path='/statsAndInsights' component={StatsAndInsights} />
-                <Route path='/settings' component={Settings} />
-                <Route path='/logOut' component={LogOut} />
+                <Route path="/" exact component={NowPlaying} />
+                <Route path="/nowPlaying" exact component={NowPlaying} />
+                <Route path="/jukeBox" component={JukeBox} />
+                <Route path="/users" component={Users} />
+                <Route path="/statsAndInsights" component={StatsAndInsights} />
+                <Route path="/settings" component={Settings} />
+                <Route path="/logOut" component={LogOut} />
                 <Route component={NotFound} />
               </Switch>
             </Layout>

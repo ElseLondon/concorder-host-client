@@ -44,18 +44,30 @@ export default function OnboardingModalStepper(
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <p style={{ color: '#CCCCCC' }}>1 of 10</p>
-
-          <Header headerText={headerText}></Header>
-          <CopyText copyText={copyText}></CopyText>
-
-          <div style={{ display: 'inline-flex' }}>
-            <PillButton buttonText={'Back'}></PillButton>
-            <div style={{ margin: '0.5rem', display: 'inline' }} />
-            <PillButton buttonText={'Next'}></PillButton>
+          <p style={{ color: '#CCCCCC', padding: '20% 0px 0px 0px' }}>1 of 10</p>
+          {/* ModalContent */}
+          <div style={{ padding: '10% 0px 0px 0px' }}>
+            <Header headerText={headerText}></Header>
+            <div style={{ paddingTop: '3%' }}>
+              <CopyText copyText={copyText}></CopyText>
+            </div>
+            <div style={{ display: 'inline-flex', padding: '5% 0px 0px 0px' }}>
+              <PillButton buttonText={'Back'}></PillButton>
+              <div style={{ margin: '0.5rem', display: 'inline' }} />
+              <PillButton buttonText={'Next'}></PillButton>
+            </div>
           </div>
-
-          <p style={{ color: '#CCCCCC' }}>Skip onboarding</p>
+          {/* ~~~ */}
+          <p
+            style={{
+              color: '#CCCCCC',
+              bottom: '5vh',
+              right: '30vh',
+              position: 'absolute'
+            }}
+          >
+            Skip onboarding
+          </p>
         </Box>
       </Modal>
     </>
