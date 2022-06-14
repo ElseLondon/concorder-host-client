@@ -1,4 +1,3 @@
-
 interface OnboardingCopyFields {
   [number:number]: {
     headerText: string,
@@ -25,31 +24,42 @@ export const OnboardingCopy: OnboardingCopyFields = {
     headerText: 'The Host App',
     copyText: [
       'The Host App (that\'s this one) is the command centre of Concorder.',
-      'It is the music player and where the play queue is generated',
+      'It is the music player and where the play queue is generated'
     ]
   },
   4: {
     headerText: 'The Client App',
     copyText: [
-      
+      'The client app is where users will define their musical choices:',
+      'their personal pool of tracks. THrough it, users will be able to',
+      'connect to the host app, so that they can hace their musical choices',
+      'added to the play queue'
     ]
   },
   5: {
     headerText: 'The Play Queue',
     copyText: [
-      
+      'This is where the magic happens! The play queue will be',
+      'dynamically managed by the host app, to ensure that at any given',
+      'point, all connected users have (roughly) the same number of tracks',
+      'queued.'
     ]
   },
   6: {
     headerText: 'The User\'s Pool',
     copyText: [
-      
+      'The pool is each user\'s personal selection of tracks. This is where',
+      'the host app will select songs from, for each connected user. User',
+      'Pools can be curated from the Jukebox catalogue (more on this',
+      'next), or, from the user\'s Spotify account.'
     ]
   },
   7: {
     headerText: 'Jukebox Mode',
     copyText: [
-      
+      'Jukebox mode allows users to connect without having to log in with',
+      'a Spotify account. Instead, users will use the Jukebox catalogue to',
+      'select the tracks the would like to add to their personal pool'
     ]
   },
   8: {
@@ -71,8 +81,8 @@ export const OnboardingCopy: OnboardingCopyFields = {
   10: {
     headerText: 'That\'s it!',
     copyText: [
-     'You will now be required to perform a short initial setup so that',
-     'Concorder can be optimised to your specific needs'
+      'You will now be required to perform a short initial setup so that',
+      'Concorder can be optimised to your specific needs'
     ]
   }
 }
