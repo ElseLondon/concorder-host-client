@@ -5,6 +5,7 @@ import PillButton from './PillButton'
 import TextButton from './TextButton'
 import Modal from '@mui/material/Modal'
 import { OnboardingCopy } from './OnboardingCopy'
+import styled from 'styled-components'
 
 interface OnboardingModalStepperProps {
   open: boolean
@@ -22,10 +23,11 @@ export default function OnboardingModalStepper(
 
   const nextClick = () => {
     setStep(step === 10 ? 10 : step + 1)
+    if (step === 10) props.handleClose()
   }
 
   const skipOnboardingClick = () => {
-    console.log('skipOnboardingClick')
+    props.handleClose()
   }
 
   return (
@@ -36,23 +38,8 @@ export default function OnboardingModalStepper(
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            height: 700,
-            width: 600,
-            backgroundColor: '#000000',
-            padding: 4,
-            color: 'white',
-            outline: 0,
-            borderRadius: '10px',
-            textAlign: 'center'
-          }}
-        >
-          <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</p>
+        <ModalContainer>
+          <StepHeader style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</StepHeader>
 
           <div style={{ paddingTop: '10%' }}>
             <Header headerText={OnboardingCopy[step].headerText}></Header>
@@ -61,20 +48,55 @@ export default function OnboardingModalStepper(
               <CopyText copyText={OnboardingCopy[step].copyText}></CopyText>
             </div>
 
-            <div style={{ display: 'inline-flex', paddingTop: '5%' }}>
-              {step !== 1 && (
-                <PillButton back onClick={backClick} buttonText={'Back'} />
-              )}
-              <div style={{ margin: '0.5rem', display: 'inline' }} />
+            <ButtonGroupContainer>
+              {
+                step !== 1 && (
+                  <PillButton back onClick={backClick} buttonText={'Back'} />
+                )
+              }
+
+              <DividerDiv/>
+
               <PillButton
                 onClick={nextClick}
                 buttonText={step === 10 ? 'Get Started' : 'Next'}
               />
-            </div>
+            </ButtonGroupContainer>
+
           </div>
           <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
-        </div>
+        </ModalContainer>
       </Modal>
     </>
   )
 }
+
+const ModalContainer = styled.div`
+  height: 700px;
+  width: 600px;
+  padding: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: white;
+  outline: 0;
+  border-radius: 10px;
+  text-align: center;
+`
+
+const StepHeader = styled.p`
+  color: #CCCCCC;
+  padding-top: 20%;
+`
+
+const ButtonGroupContainer = styled.div`
+  display: inline-flex;
+  padding-top: 5%;
+`
+
+const DividerDiv = styled.div`
+  margin: 0.5rem;
+  display: inline;
+`
