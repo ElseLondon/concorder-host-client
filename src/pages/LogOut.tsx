@@ -1,19 +1,20 @@
-import React, { /* useState */ } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 // import Modal from '@mui/material/Modal'
-// import Button from '@mui/material/Button'
+import Button from '@mui/material/Button'
 // import Typography from '@mui/material/Typography'
 
 export default function LogOut() {
-  // const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
+  console.log('open', open)
 
   // const handleClose = () => setOpen(false)
-  // const handleOpen = () => setOpen(true)
+  const handleOpen = () => setOpen(true)
 
   return (
     <PageContainer>
-      {/* <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
+      <Button onClick={handleOpen}>Open modal</Button>
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
