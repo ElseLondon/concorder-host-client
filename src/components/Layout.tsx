@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from './Sidebar'
+import Sidebar from './Sidebar/Sidebar'
 import { RouteComponentProps } from 'react-router-dom'
 
 interface LayoutProps {

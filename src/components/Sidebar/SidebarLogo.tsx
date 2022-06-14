@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/concorder-logo.png'
+import logo from '../../assets/concorder-logo.png'
 
 export default function SidebarLogo() {
   return (
