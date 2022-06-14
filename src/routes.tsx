@@ -1,32 +1,33 @@
-import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import JukeBox from "./pages/JukeBox";
-import Users from "./pages/Users";
-import StatsAndInsights from "./pages/StatsAndInsights";
-import NowPlaying from "./pages/NowPlaying";
-import NotFound from "./pages/NotFound";
-import Layout from "./components/Layout";
-import LogOut from "./pages/LogOut";
-import Settings from "./pages/Settings";
-
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import JukeBox from './pages/JukeBox'
+import Users from './pages/Users'
+import StatsAndInsights from './pages/StatsAndInsights'
+import NowPlaying from './pages/NowPlaying'
+import NotFound from './pages/NotFound'
+import Layout from './components/Layout'
+import LogOut from './pages/LogOut'
+import Settings from './pages/Settings'
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Route render={(props)=>(
-        <Layout {...props}>
-          <Switch>
-            <Route path="/" exact component={NowPlaying}/>
-            <Route path="/nowPlaying" exact component={NowPlaying}/>
-            <Route path="/jukeBox" component={JukeBox}/>
-            <Route path="/users" component={Users}/>
-            <Route path="/statsAndInsights" component={StatsAndInsights}/>
-            <Route path="/settings" component={Settings}/>
-            <Route path="/logOut" component={LogOut}/>
-            <Route component={NotFound}/>
-          </Switch>
-        </Layout>
-      )}/>
+      <Route
+        render={(props) => (
+          <Layout {...props}>
+            <Switch>
+              <Route path="/" exact component={NowPlaying} />
+              <Route path="/nowPlaying" exact component={NowPlaying} />
+              <Route path="/jukeBox" component={JukeBox} />
+              <Route path="/users" component={Users} />
+              <Route path="/statsAndInsights" component={StatsAndInsights} />
+              <Route path="/settings" component={Settings} />
+              <Route path="/logOut" component={LogOut} />
+              <Route component={NotFound} />
+            </Switch>
+          </Layout>
+        )}
+      />
     </BrowserRouter>
   )
 }
