@@ -4,10 +4,18 @@ import styled from 'styled-components'
 interface PillButtonProps {
   buttonText: string
   back?: boolean
+  onClick?: any // fix any
 }
 
 export default function PillButton(props: PillButtonProps) {
-  return <StyledPillButton back={props.back || false}>{props.buttonText}</StyledPillButton>
+  return (
+    <StyledPillButton
+      back={props.back || false}
+      onClick={props.onClick || null}
+    >
+      {props.buttonText}
+    </StyledPillButton>
+  )
 }
 
 const StyledPillButton = styled.button<{ back: boolean }>`
