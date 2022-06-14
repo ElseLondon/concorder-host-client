@@ -15,6 +15,7 @@ interface OnboardingModalStepperProps {
 export default function OnboardingModalStepper(
   props: OnboardingModalStepperProps
 ) {
+  const { open, handleClose } = props
   const [step, setStep] = React.useState(1)
 
   const backClick = () => {
@@ -23,22 +24,24 @@ export default function OnboardingModalStepper(
 
   const nextClick = () => {
     setStep(step === 10 ? 10 : step + 1)
-    if (step === 10) props.handleClose()
+    if (step === 10) handleClose()
   }
 
   const skipOnboardingClick = () => {
-    props.handleClose()
+    handleClose()
   }
 
   return (
     <Modal
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <ModalContainer>
-        <StepHeader style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</StepHeader>
+        <StepHeader style={{ color: '#CCCCCC', paddingTop: '20%' }}>
+          {step} of 10
+        </StepHeader>
 
         <div style={{ paddingTop: '10%' }}>
           <Header headerText={OnboardingCopy[step].headerText}></Header>
@@ -48,20 +51,17 @@ export default function OnboardingModalStepper(
           </div>
 
           <ButtonGroupContainer>
-            {
-              step !== 1 && (
-                <PillButton back onClick={backClick} buttonText={'Back'} />
-              )
-            }
+            {step !== 1 && (
+              <PillButton back onClick={backClick} buttonText={'Back'} />
+            )}
 
-            <DividerDiv/>
+            <DividerDiv />
 
             <PillButton
               onClick={nextClick}
               buttonText={step === 10 ? 'Get Started' : 'Next'}
             />
           </ButtonGroupContainer>
-
         </div>
         <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
       </ModalContainer>
@@ -85,7 +85,7 @@ const ModalContainer = styled.div`
 `
 
 const StepHeader = styled.p`
-  color: #CCCCCC;
+  color: #cccccc;
   padding-top: 20%;
 `
 
