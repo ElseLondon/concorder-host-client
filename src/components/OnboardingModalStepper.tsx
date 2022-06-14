@@ -68,9 +68,19 @@ export default function OnboardingModalStepper(
             </div>
 
             <div style={{ display: 'inline-flex', paddingTop: '5%' }}>
-              <PillButton back onClick={backClick} buttonText={'Back'}></PillButton>
+              {
+                step !== 1 &&
+                  <PillButton
+                    back
+                    onClick={backClick}
+                    buttonText={'Back'}
+                  />
+              }
               <div style={{ margin: '0.5rem', display: 'inline' }} />
-              <PillButton onClick={nextClick} buttonText={'Next'}></PillButton>
+              <PillButton
+                onClick={nextClick}
+                buttonText={step === 10 ? 'Get Started' : 'Next'}
+              />
             </div>
           {/* ModalContent */}{/* ModalContent */}{/* ModalContent */}
 
