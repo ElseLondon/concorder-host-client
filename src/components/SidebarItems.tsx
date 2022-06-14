@@ -1,28 +1,28 @@
 const SidebarItems = [
   {
-    name: "Now Playing",
-    route: '/nowPlaying',
+    name: 'Now Playing',
+    route: '/nowPlaying'
   },
   {
-    name: "Jukebox",
+    name: 'Jukebox',
     route: '/jukebox'
   },
   {
-    name: "Users",
+    name: 'Users',
     route: '/users'
   },
   {
-    name: "Stats & Insights",
+    name: 'Stats & Insights',
     route: '/statsAndInsights'
   },
   {
-    name: "Settings",
+    name: 'Settings',
     route: '/settings'
   },
   {
-    name: "Logout",
+    name: 'Logout',
     route: '/logout'
-  },
-];
+  }
+]
 
-export default SidebarItems;
+export default SidebarItems
