@@ -14,12 +14,18 @@ interface OnboardingModalStepperProps {
 export default function OnboardingModalStepper(
   props: OnboardingModalStepperProps
 ) {
+  const [step, setStep] = React.useState(1)
+
   const backClick = () => {
-    console.log('backClick')
+    setStep(
+      step === 1 ? 1 : step - 1
+    )
   }
 
   const nextClick = () => {
-    console.log('nextClick')
+    setStep(
+      step === 10 ? 10 : step + 1
+    )
   }
 
   const skipOnboardingClick = () => {
@@ -50,10 +56,12 @@ export default function OnboardingModalStepper(
             textAlign: 'center'
           }}
         >
-          <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>1 of 10</p>
-          {/* ModalContent */}
+          <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</p>
+
+          {/* ModalContent */}{/* ModalContent */}{/* ModalContent */}
           <div style={{ paddingTop: '10%' }}>
-            <Header headerText={OnboardingCopy[1].headerText}></Header>
+            {/* @ts-ignore */}
+            <Header headerText={OnboardingCopy[step].headerText}></Header>
 
             <div style={{ paddingTop: '3%' }}>
               <CopyText copyText={OnboardingCopy[1].copyText}></CopyText>
@@ -64,6 +72,7 @@ export default function OnboardingModalStepper(
               <div style={{ margin: '0.5rem', display: 'inline' }} />
               <PillButton onClick={nextClick} buttonText={'Next'}></PillButton>
             </div>
+          {/* ModalContent */}{/* ModalContent */}{/* ModalContent */}
 
           </div>
           <TextButton text="Skip onboarding" onClick={skipOnboardingClick}/>
