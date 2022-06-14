@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import JukeBox from './pages/JukeBox'
 import Users from './pages/Users'
@@ -11,15 +11,13 @@ import Settings from './pages/Settings'
 import OnboardingModalStepper from './components/OnboardingModalStepper'
 
 export default function Routes() {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = useState(true)
+
   const handleClose = () => setOpen(false)
 
   return (
     <BrowserRouter>
-      <div
-        className="AppContainer"
-        style={{ filter: open ? 'blur(2px) opacity(33%)' : 'none' }}
-      >
+      <div style={{ filter: open ? 'blur(2px) opacity(33%)' : 'none' }}>
         <OnboardingModalStepper open={open} handleClose={handleClose} />
         <Route
           render={(props) => (
