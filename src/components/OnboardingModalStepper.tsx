@@ -31,43 +31,41 @@ export default function OnboardingModalStepper(
   }
 
   return (
-    <>
-      <Modal
-        open={props.open}
-        onClose={props.handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <ModalContainer>
-          <StepHeader style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</StepHeader>
+    <Modal
+      open={props.open}
+      onClose={props.handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <ModalContainer>
+        <StepHeader style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</StepHeader>
 
-          <div style={{ paddingTop: '10%' }}>
-            <Header headerText={OnboardingCopy[step].headerText}></Header>
+        <div style={{ paddingTop: '10%' }}>
+          <Header headerText={OnboardingCopy[step].headerText}></Header>
 
-            <div style={{ paddingTop: '3%' }}>
-              <CopyText copyText={OnboardingCopy[step].copyText}></CopyText>
-            </div>
-
-            <ButtonGroupContainer>
-              {
-                step !== 1 && (
-                  <PillButton back onClick={backClick} buttonText={'Back'} />
-                )
-              }
-
-              <DividerDiv/>
-
-              <PillButton
-                onClick={nextClick}
-                buttonText={step === 10 ? 'Get Started' : 'Next'}
-              />
-            </ButtonGroupContainer>
-
+          <div style={{ paddingTop: '3%' }}>
+            <CopyText copyText={OnboardingCopy[step].copyText}></CopyText>
           </div>
-          <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
-        </ModalContainer>
-      </Modal>
-    </>
+
+          <ButtonGroupContainer>
+            {
+              step !== 1 && (
+                <PillButton back onClick={backClick} buttonText={'Back'} />
+              )
+            }
+
+            <DividerDiv/>
+
+            <PillButton
+              onClick={nextClick}
+              buttonText={step === 10 ? 'Get Started' : 'Next'}
+            />
+          </ButtonGroupContainer>
+
+        </div>
+        <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
+      </ModalContainer>
+    </Modal>
   )
 }
 

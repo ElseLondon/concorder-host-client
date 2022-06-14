@@ -15,6 +15,6 @@ export default function TextButtonStepper(props: TextButtonProps) {
 const StyledTextButton = styled.p`
   color: #cccccc;
   bottom: 5vh;
-  right: 27vh;
+  right: 26.5vh;
   position: absolute;
 `
