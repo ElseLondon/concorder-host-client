@@ -21,7 +21,6 @@ export default function Routes() {
         style={{ filter: open ? 'blur(2px) opacity(33%)' : 'none' }}
       >
         <OnboardingModalStepper open={open} handleClose={handleClose} />
-
         <Route
           render={(props) => (
             <Layout {...props}>

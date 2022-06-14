@@ -44,15 +44,15 @@ export default function OnboardingModalStepper(
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <p style={{ color: '#CCCCCC', padding: '20% 0px 0px 0px' }}>1 of 10</p>
+          <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>1 of 10</p>
           {/* ModalContent */}
-          <div style={{ padding: '10% 0px 0px 0px' }}>
+          <div style={{ paddingTop: '10%' }}>
             <Header headerText={headerText}></Header>
             <div style={{ paddingTop: '3%' }}>
               <CopyText copyText={copyText}></CopyText>
             </div>
-            <div style={{ display: 'inline-flex', padding: '5% 0px 0px 0px' }}>
-              <PillButton buttonText={'Back'}></PillButton>
+            <div style={{ display: 'inline-flex', paddingTop: '5%' }}>
+              <PillButton back buttonText={'Back'}></PillButton>
               <div style={{ margin: '0.5rem', display: 'inline' }} />
               <PillButton buttonText={'Next'}></PillButton>
             </div>
