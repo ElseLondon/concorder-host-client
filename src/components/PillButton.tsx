@@ -4,14 +4,14 @@ import styled from 'styled-components'
 interface PillButtonProps {
   buttonText: string
   back?: boolean
-  onClick?: any // fix any
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export default function PillButton(props: PillButtonProps) {
   return (
     <StyledPillButton
       back={props.back || false}
-      onClick={props.onClick || null}
+      onClick={props.onClick || undefined}
     >
       {props.buttonText}
     </StyledPillButton>
