@@ -1,10 +1,9 @@
-import React from "react";
-import Header from "./Header";
-import CopyText from "./CopyText";
-import PillButton from "./PillButton";
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-
+import React from 'react'
+import Header from './Header'
+import CopyText from './CopyText'
+import PillButton from './PillButton'
+import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -19,22 +18,24 @@ const style = {
   outline: 0,
   borderRadius: '10px',
   textAlign: 'center'
-};
+}
 
 interface OnboardingModalStepperProps {
-  open: boolean,
-  handleClose: () => void,
-};
+  open: boolean
+  handleClose: () => void
+}
 
-export default function OnboardingModalStepper(props: OnboardingModalStepperProps) {
-  const headerText = "Welcome to Concorder!";
+export default function OnboardingModalStepper(
+  props: OnboardingModalStepperProps
+) {
+  const headerText = 'Welcome to Concorder!'
   const copyText = [
-    "Concorder is the music player that allows a group of users to",
-    "seamlessly generate a play queue where all users have a fair share",
-    "of their own musical choices."
-  ];
+    'Concorder is the music player that allows a group of users to',
+    'seamlessly generate a play queue where all users have a fair share',
+    'of their own musical choices.'
+  ]
 
-  return(
+  return (
     <>
       <Modal
         open={props.open}
@@ -43,20 +44,20 @@ export default function OnboardingModalStepper(props: OnboardingModalStepperProp
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <p style={{color: '#CCCCCC'}}>1 of 10</p>
+          <p style={{ color: '#CCCCCC' }}>1 of 10</p>
 
           <Header headerText={headerText}></Header>
           <CopyText copyText={copyText}></CopyText>
 
-          <div style={{ display: 'inline-flex'}}>
-            <PillButton buttonText={"Back"}></PillButton>
-            <div style={{ margin: '0.5rem', display: 'inline'}}/>
-            <PillButton buttonText={"Next"}></PillButton>
+          <div style={{ display: 'inline-flex' }}>
+            <PillButton buttonText={'Back'}></PillButton>
+            <div style={{ margin: '0.5rem', display: 'inline' }} />
+            <PillButton buttonText={'Next'}></PillButton>
           </div>
 
-          <p style={{color: '#CCCCCC'}}>Skip onboarding</p>
+          <p style={{ color: '#CCCCCC' }}>Skip onboarding</p>
         </Box>
       </Modal>
     </>
-  );
-};
+  )
+}
