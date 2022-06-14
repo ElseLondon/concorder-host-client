@@ -4,7 +4,7 @@ import CopyText from './CopyText'
 import PillButton from './PillButton'
 import TextButton from './TextButton'
 import Modal from '@mui/material/Modal'
-import OnboardingCopy from './OnboardingCopy'
+import { OnboardingCopy } from './OnboardingCopy'
 
 interface OnboardingModalStepperProps {
   open: boolean
@@ -56,11 +56,10 @@ export default function OnboardingModalStepper(
             textAlign: 'center'
           }}
         >
+
           <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>{step} of 10</p>
 
-          {/* ModalContent */}{/* ModalContent */}{/* ModalContent */}
           <div style={{ paddingTop: '10%' }}>
-            {/* @ts-ignore */}
             <Header headerText={OnboardingCopy[step].headerText}></Header>
 
             <div style={{ paddingTop: '3%' }}>
@@ -82,8 +81,6 @@ export default function OnboardingModalStepper(
                 buttonText={step === 10 ? 'Get Started' : 'Next'}
               />
             </div>
-          {/* ModalContent */}{/* ModalContent */}{/* ModalContent */}
-
           </div>
           <TextButton text="Skip onboarding" onClick={skipOnboardingClick}/>
         </div>

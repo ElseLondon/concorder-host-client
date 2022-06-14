@@ -1,5 +1,12 @@
 
-export default {
+interface OnboardingCopyFields {
+  [number:number]: {
+    headerText: string,
+    copyText: string[]
+  }
+}
+
+export const OnboardingCopy: OnboardingCopyFields = {
   1: {
     headerText: 'Welcome to Concorder!',
     copyText: [
