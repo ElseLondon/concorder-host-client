@@ -2,7 +2,9 @@ import React from 'react'
 import Header from './Header'
 import CopyText from './CopyText'
 import PillButton from './PillButton'
+import TextButton from './TextButton'
 import Modal from '@mui/material/Modal'
+import OnboardingCopy from './OnboardingCopy'
 
 interface OnboardingModalStepperProps {
   open: boolean
@@ -12,13 +14,6 @@ interface OnboardingModalStepperProps {
 export default function OnboardingModalStepper(
   props: OnboardingModalStepperProps
 ) {
-  const headerText = 'Welcome to Concorder!'
-  const copyText = [
-    'Concorder is the music player that allows a group of users to',
-    'seamlessly generate a play queue where all users have a fair share',
-    'of their own musical choices.'
-  ]
-
   const backClick = () => {
     console.log('backClick')
   }
@@ -58,10 +53,10 @@ export default function OnboardingModalStepper(
           <p style={{ color: '#CCCCCC', paddingTop: '20%' }}>1 of 10</p>
           {/* ModalContent */}
           <div style={{ paddingTop: '10%' }}>
-            <Header headerText={headerText}></Header>
+            <Header headerText={OnboardingCopy[1].headerText}></Header>
 
             <div style={{ paddingTop: '3%' }}>
-              <CopyText copyText={copyText}></CopyText>
+              <CopyText copyText={OnboardingCopy[1].copyText}></CopyText>
             </div>
 
             <div style={{ display: 'inline-flex', paddingTop: '5%' }}>
@@ -71,18 +66,7 @@ export default function OnboardingModalStepper(
             </div>
 
           </div>
-          {/* ~~~ */}
-          <p
-            onClick={skipOnboardingClick}
-            style={{
-              color: '#CCCCCC',
-              bottom: '5vh',
-              right: '27vh',
-              position: 'absolute'
-            }}
-          >
-            Skip onboarding
-          </p>
+          <TextButton text="Skip onboarding" onClick={skipOnboardingClick}/>
         </div>
       </Modal>
     </>
