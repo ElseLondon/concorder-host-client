@@ -24,13 +24,18 @@ export default function OnboardingModalStepper(
 
   const nextClick = () => {
     setStep(step === 10 ? 10 : step + 1)
-    //
-    if (step === 10) handleClose()
-    //  Instead of closing we need to redirect
+
+    if (step === 10) {
+      // duplicated code here
+      handleClose()
+      window.location.href = '/logIn'
+    }
   }
 
   const skipOnboardingClick = () => {
+    // duplicated code here
     handleClose()
+    window.location.href = '/logIn'
   }
 
   return (
