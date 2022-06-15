@@ -39,16 +39,17 @@ export default function OnboardingModalStepper(
       aria-describedby="modal-modal-description"
     >
       <ModalContainer>
-        <StepHeader style={{ color: '#CCCCCC', paddingTop: '20%' }}>
+        <StepHeader>
           {step} of 10
         </StepHeader>
 
         <div style={{ paddingTop: '10%' }}>
-          <Header headerText={OnboardingCopy[step].headerText}></Header>
+          <Header headerText={OnboardingCopy[step].headerText}/>
 
-          <div style={{ paddingTop: '3%' }}>
-            <CopyText copyText={OnboardingCopy[step].copyText}></CopyText>
-          </div>
+          <CopyText
+            paddingTop='3%'
+            copyText={OnboardingCopy[step].copyText}
+          />
 
           <ButtonGroupContainer>
             {step !== 1 && (

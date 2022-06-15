@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 interface CopyTextProps {
   copyText: string[]
+  paddingTop?: string
 }
 
 export default function CopyText(props: CopyTextProps) {
@@ -10,7 +11,12 @@ export default function CopyText(props: CopyTextProps) {
     <>
       {props.copyText.map((row, index) => (
         <div key={index}>
-          <CopyRow key={index}>{row}</CopyRow>
+          <CopyRow
+            paddingTop={props.paddingTop}
+            key={index}
+          >
+              {row}
+          </CopyRow>
           <br />
         </div>
       ))}
@@ -18,7 +24,8 @@ export default function CopyText(props: CopyTextProps) {
   )
 }
 
-const CopyRow = styled.p`
+const CopyRow = styled.p<{ paddingTop?:string }>`
   color: white;
   text-align: center;
+  padding-top: ${props => props.paddingTop || '0%'};
 `
