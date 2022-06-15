@@ -5,7 +5,7 @@ interface PillButtonProps {
   buttonText: string
   back?: boolean
   danger?: boolean
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement> // get rid of conditional
 }
 
 const getButtonTextColor = (back?: boolean, danger?: boolean) => {
@@ -24,7 +24,7 @@ export default function PillButton(props: PillButtonProps) {
     <StyledPillButton
       back={props.back || false}
       danger={props.danger || false}
-      onClick={props.onClick || undefined}
+      onClick={props.onClick || undefined} // get rid of conditional
     >
       {props.buttonText}
     </StyledPillButton>
