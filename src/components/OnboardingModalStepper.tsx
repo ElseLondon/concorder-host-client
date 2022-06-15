@@ -24,11 +24,18 @@ export default function OnboardingModalStepper(
 
   const nextClick = () => {
     setStep(step === 10 ? 10 : step + 1)
-    if (step === 10) handleClose()
+
+    if (step === 10) {
+      // duplicated code here
+      handleClose()
+      window.location.href = '/logIn'
+    }
   }
 
   const skipOnboardingClick = () => {
+    // duplicated code here
     handleClose()
+    window.location.href = '/logIn'
   }
 
   return (
@@ -53,15 +60,17 @@ export default function OnboardingModalStepper(
 
           <ButtonGroupContainer>
             {step !== 1 && (
+              <>
               <PillButton back onClick={backClick} buttonText={'Back'} />
+              <DividerDiv />
+              </>
             )}
-
-            <DividerDiv />
 
             <PillButton
               onClick={nextClick}
               buttonText={step === 10 ? 'Get Started' : 'Next'}
             />
+
           </ButtonGroupContainer>
         </div>
         <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
