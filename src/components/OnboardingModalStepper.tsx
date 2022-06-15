@@ -53,15 +53,17 @@ export default function OnboardingModalStepper(
 
           <ButtonGroupContainer>
             {step !== 1 && (
+              <>
               <PillButton back onClick={backClick} buttonText={'Back'} />
+              <DividerDiv />
+              </>
             )}
-
-            <DividerDiv />
 
             <PillButton
               onClick={nextClick}
               buttonText={step === 10 ? 'Get Started' : 'Next'}
             />
+
           </ButtonGroupContainer>
         </div>
         <TextButton text="Skip onboarding" onClick={skipOnboardingClick} />
