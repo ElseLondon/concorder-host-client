@@ -4,11 +4,12 @@ import Header from '../../components/Header'
 
 let documentBody: RenderResult
 
-describe('<NotFound />', () => {
+describe('<Header />', () => {
   beforeEach(() => {
-    documentBody = render(<Header headerText="samir"/>)
+    documentBody = render(<Header headerText="Example Header Text."/>)
   })
+
   it('shows not found message', () => {
-    expect(documentBody.getByText('samir')).toBeInTheDocument()
+    expect(documentBody.getByText('Example Header Text.')).toBeInTheDocument()
   })
 })
