@@ -45,7 +45,7 @@ describe('<PillButton />', () => {
 
     const styles = getComputedStyle(exampleBackPillButton)
 
-    expect(styles.backgroundColor).toBe('rgb(52, 52, 52)')
+    expect(styles.backgroundColor).toBe('rgb(52, 52, 52)') // why isn't this '#343434'
     expect(styles.color).toBe('white')
   })
 })
